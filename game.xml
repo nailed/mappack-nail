@@ -74,11 +74,13 @@
             <id>teamred</id>
             <name>Attackers</name>
             <color>red</color>
+            <friendlyFire>false</friendlyFire>
         </team>
         <team>
             <id>teamblue</id>
             <name>Defenders</name>
             <color>blue</color>
+            <friendlyFire>false</friendlyFire>
         </team>
     </teams>
 
