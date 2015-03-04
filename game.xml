@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<!--
+  ~ Nailed, a Minecraft PvP server framework
+  ~ Copyright (C) jk-5 <http://github.com/jk-5/>
+  ~ Copyright (C) Nailed team and contributors <http://github.com/nailed/>
+  ~
+  ~ This program is free software: you can redistribute it and/or modify it
+  ~ under the terms of the MIT License.
+  ~
+  ~ This program is distributed in the hope that it will be useful, but WITHOUT
+  ~ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+  ~ FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License
+  ~ for more details.
+  ~
+  ~ You should have received a copy of the MIT License along with
+  ~ this program. If not, see <http://opensource.org/licenses/MIT/>.
+  -->
+
+<game xmlns="http://nailed.jk-5.tk/GameConfig/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nailed.jk-5.tk/GameConfig/1.0.0 NailedGame.xsd">
+    <name>Nail</name>
+    <version>1.5e - n7.1</version>
+
+    <authors>
+        <author>
+            <name>Rixiot</name>
+            <role>Original game design and idea</role>
+        </author>
+        <author>
+            <name>TrazLander</name>
+            <role>Original game design and idea</role>
+        </author>
+        <author>
+            <name>jk-5</name>
+            <role>Cleaning everything up. Rebuilding spawn. Rebuilding the castle. Configuring the mappack</role>
+        </author>
+        <author>
+            <name>PostVillageCore</name>
+            <role>Rebuilding spawn</role>
+        </author>
+        <author>
+            <name>jelte</name>
+            <role>Helping rebuild the castle</role>
+        </author>
+        <author>
+            <name>zM600D</name>
+            <role>Helping rebuild the castle</role>
+        </author>
+        <author>
+            <name>armjets</name>
+            <role>Helping rebuild the castle</role>
+        </author>
+        <author>
+            <name>GamerFTCaffeine</name>
+            <role>Renaming every single item in the world</role>
+        </author>
+    </authors>
+
+    <worlds>
+        <world default="true">
+            <name>default</name>
+            <generator>void</generator>
+            <difficulty>peaceful</difficulty>
+            <spawnpoint x="947" y="85" z="740" yaw="180"/>
+            <disableDamage>false</disableDamage>
+            <disableFood>false</disableFood>
+            <gamerules>
+                <commandBlockOutput>false</commandBlockOutput>
+            </gamerules>
+        </world>
+    </worlds>
+
+    <teams>
+        <team>
+            <id>teamred</id>
+            <name>Attackers</name>
+            <color>red</color>
+        </team>
+        <team>
+            <id>teamblue</id>
+            <name>Defenders</name>
+            <color>blue</color>
+        </team>
+    </teams>
+
+    <stats>
+        <stat name="startRed"/>
+        <stat name="startBlue"/>
+        <stat name="gamerunning" track="gameRunning"/>
+        <stat name="gamedone" track="gameHasWinner"/>
+        <stat name="teamredwon" track="teamWon">
+            <team>teamred</team>
+        </stat>
+        <stat name="teambluewon" track="teamWon">
+            <team>teamblue</team>
+        </stat>
+    </stats>
+
+    <tutorial>
+        <stages>
+            <stage>
+                <title>Nail</title>
+                <messages>
+                    <message>Nail is a PvP game with 2 teams</message>
+                </messages>
+                <teleport x="943" y="87" z="765" yaw="136.5" pitch="-15"/>
+            </stage>
+            <stage>
+                <title>Teams</title>
+                <messages>
+                    <message>There are 2 teams. Team red (attackers) and team blue (defenders)</message>
+                    <message>The goal for the attackers is to find 2 sponge blocks at the back of the castle within 20 minutes</message>
+                    <message>The defenders have to defend this castle, and when the time runs out, they win the game</message>
+                    <message>These gates are where the teams join the game</message>
+                </messages>
+                <teleport x="915" y="86" z="772" yaw="-32" pitch="10"/>
+            </stage>
+            <stage>
+                <title>Starting the game</title>
+                <messages>
+                    <message>When the game starts, the blue floor opens and the defenders can join the map</message>
+                    <message>The attackers have to wait 1 minute before joining</message>
+                </messages>
+                <teleport x="922" y="79" z="791" yaw="180" pitch="-33.8"/>
+            </stage>
+            <stage>
+                <title>The Jungle</title>
+                <messages>
+                    <message>When the defenders leave the spawn building, they have to walk through the jungle</message>
+                    <message>There are a lot of loot chests hidden in the jungle. I could tell you where they are, but where's the fun in that!?</message>
+                    <message>Tip: Try to make it as dark as possible in the jungle. When the attackers join the game it's night, so mobs can spawn</message>
+                </messages>
+                <teleport x="876" y="83" z="810" yaw="-54"/>
+            </stage>
+            <stage>
+                <title>The Castle</title>
+                <messages>
+                    <message>When the defenders finished their travel through the jungle, they arrive at the castle</message>
+                    <message>This castle is the defender camp. A lot of resources like armour or weapons are stored in this castle</message>
+                </messages>
+                <teleport x="922" y="77" z="900" pitch="-10"/>
+            </stage>
+            <stage>
+                <title>The Castle</title>
+                <messages>
+                    <message>There are 3 walls. You start defending on the first (blue) wall</message>
+                    <message>Later on in the game, you will find yourself in a situation where the first wall is destroyed, so you will have to retreat to another wall</message>
+                </messages>
+                <teleport x="910" y="125" z="923" yaw="-53" pitch="62"/>
+            </stage>
+            <stage>
+                <title>The sponge tower</title>
+                <messages>
+                    <message>Behind the red wall, there is a big tower. In this tower are 2 hidden sponge blocks</message>
+                    <message>The goal of the attackers is to destroy these</message>
+                </messages>
+                <teleport x="913" y="100" z="961" yaw="-41" pitch="25"/>
+            </stage>
+            <stage>
+                <title>The sponges</title>
+                <messages>
+                    <message>This is the inside of the tower. You can see the two sponges</message>
+                </messages>
+                <teleport x="920.31" y="88" z="970.31" yaw="-49.3" pitch="-74"/>
+            </stage>
+            <stage>
+                <title>Respawning</title>
+                <messages>
+                    <message>When any of the defenders dies, they respawn here. It is a long walk back to the castle from here, so make sure you don't die a lot</message>
+                    <message>The attackers just respawn in the spawn house (the house where the game is started)</message>
+                </messages>
+                <teleport x="899.9251" y="87.0" z="1196.075" yaw="-143.05382" pitch="23.587614"/>
+            </stage>
+            <stage>
+                <title>Respawning</title>
+                <messages>
+                    <message>When you finally made it back, you will be teleported into this room</message>
+                    <message>In this room are a few sets of simple armour, so you can still protect yourself from the attackers when they are already behind the last wall</message>
+                </messages>
+                <teleport x="914.8822810604937" y="91.61338981212654" z="961.3000000119209" yaw="67.9243" pitch="8.828117"/>
+            </stage>
+            <stage>
+                <title>Attacker camp</title>
+                <messages>
+                    <message>This is one of the two supply rooms for the attackers. Everything they will possibly need is stored in here</message>
+                    <message>You can find everything from blocks to torches to tnt to food and armour in these chests</message>
+                </messages>
+                <teleport x="941.79" y="79.96" z="793.78" yaw="-228.09344" pitch="12.340155"/>
+            </stage>
+            <stage>
+                <title>Loot</title>
+                <messages>
+                    <message>A lot of loot is hidden in the jungle or the grass field in front of the castle</message>
+                    <message>The defenders may want to try to take some of the loot, but they have to be quick, as they have only 1 minute before the attackers will be released</message>
+                </messages>
+                <teleport x="932.610707409399" y="78.1116330269739" z="888.1424100683638" yaw="-114.03946" pitch="46.20429"/>
+            </stage>
+            <stage>
+                <title>Loot</title>
+                <messages>
+                    <message>These are 2 of the hidden loot chests in the jungle. Try to find them all!</message>
+                </messages>
+                <teleport x="928.3000000119209" y="98.62181228293056" z="820.6999999880791" yaw="-315.47794" pitch="38.20378"/>
+            </stage>
+        </stages>
+    </tutorial>
+</game>
