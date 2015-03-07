@@ -5,6 +5,14 @@ function greenMessage(msg){
     return t;
 }
 
+function preparePlayer(player){
+    player.clearInventory();
+    player.setGamemode(GameMode.SURVIVAL);
+    player.setHealth(20);
+    player.setHunger(0);
+    player.setLevel(0);
+}
+
 var teamred = map.getTeam("teamred");
 var teamblue = map.getTeam("teamblue");
 var kills = map.getScoreboard().getObjective("kills");
@@ -12,14 +20,13 @@ var world = map.getWorld("default");
 
 kills.setDisplayName("Player Kills");
 
-var teamBluePlayers = teamblue.getPlayers();
-for (var i = 0; i < teamBluePlayers.length; i++) {
-	kills.set(teamBluePlayers[i].getName(), 0);
-}
-var teamRedPlayers = teamred.getPlayers();
-for (var i = 0; i < teamRedPlayers.length; i++) {
-	kills.set(teamRedPlayers[i].getName(), 0);
-}
+teamblue.forEachPlayer(function(player){
+    kills.set(player.getName(), 0);
+});
+
+teamred.forEachPlayer(function(player){
+    kills.set(player.getName(), 0);
+});
 
 /*map.on("player_kill_player", function(event){
 	kills.addScore(event.src.getUsername(), 1);
@@ -41,14 +48,7 @@ map.setWinInterrupt(true);
 //map.getScoreboard().setDisplay(kills, DisplayType.SIDEBAR);
 
 teamblue.setSpawn(903,86,1192);
-for (var i = 0; i < teamBluePlayers.length; i++) {
-    var p = teamBluePlayers[i];
-    p.clearInventory();
-    p.setGamemode(GameMode.SURVIVAL);
-    p.setHealth(20);
-    p.setHunger(0);
-    p.setLevel(0);
-}
+teamblue.forEachPlayer(preparePlayer);
 map.enableStat("startBlue");
 
 world.setTime(12500);
@@ -63,14 +63,7 @@ teamred.setSubtitle(greenMessage("Try to destroy the sponges in the castle"));
 teamblue.setSubtitle(greenMessage("The invaders have been released"));
 
 teamred.setSpawn(922,84,787);
-for (var i = 0; i < teamRedPlayers.length; i++) {
-    var p = teamRedPlayers[i];
-    p.clearInventory();
-    p.setGamemode(GameMode.SURVIVAL);
-    p.setHealth(20);
-    p.setHunger(0);
-    p.setLevel(0);
-}
+teamred.forEachPlayer(preparePlayer);
 map.enableStat("startRed");
 
 var length = 20 * 60 * 1000;
