@@ -18,7 +18,7 @@
 
 <game xmlns="http://nailed.jk-5.tk/GameConfig/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nailed.jk-5.tk/GameConfig/1.0.0 NailedGame.xsd">
     <name>Nail</name>
-    <version>1.5e - n7.2</version>
+    <version>1.5e - n7.3</version>
 
     <authors>
         <author>
