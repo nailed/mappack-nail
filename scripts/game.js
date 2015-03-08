@@ -13,6 +13,10 @@ function preparePlayer(player){
     player.setLevel(0);
 }
 
+function allowPlayerToFly(player){
+    player.setAllowedToFly(true);
+}
+
 var teamred = map.getTeam("teamred");
 var teamblue = map.getTeam("teamblue");
 var kills = map.getScoreboard().getObjective("kills");
@@ -85,3 +89,6 @@ map.countdown(10);
 
 map.setWinner(teamblue);
 world.setDifficulty(Difficulty.PEACEFUL);
+
+teamred.forEachPlayer(allowPlayerToFly);
+teamblue.forEachPlayer(allowPlayerToFly);
